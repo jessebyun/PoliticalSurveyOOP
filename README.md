@@ -11,7 +11,7 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 - **Object-Oriented Design (OOP)** to ensure modularity and scalability.
 
 ## 🏗️ Project Structure
-📂 PoliticalSurveyOOP/ │── 📄 Main.java # Entry point for the program │── 📄 PoliticalSurvey.java # Manages survey flow, scoring, and predictions │── 📄 QuestionBank.java # Stores all survey questions │── 📄 Question.java # Represents a single question with answer options │── 📄 README.md # Documentation for the project
+📂 PoliticalSurveyOOP/ │── 📄 Main.java # Entry point for the program. │── 📄 PoliticalSurvey.java # Manages survey flow, scoring, and predictions │── 📄 QuestionBank.java # Stores all survey questions │── 📄 Question.java # Represents a single question with answer options │── 📄 README.md # Documentation for the project
 
 
 ## 🛠️ Technologies Used
