@@ -144,4 +144,7 @@ else if validResponses == 0:
 ✅ Prevents misleading classifications when there are too few valid responses.  
 ✅ The final guess is only made if at least one valid answer is provided.
 
-For actual implementation, refer to [PoliticalSurvey.java](). 🚀
+For actual implementation, refer to [PoliticalSurvey.java](). 🚀  
+For a full explanation of the before/after pseudocode, refer to [`docs/pseudocode`](docs/pseudocode.md).  
+
+[//]: # (Need to implement before and after pseudocode)
