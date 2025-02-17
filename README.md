@@ -11,7 +11,7 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 - **Object-Oriented Design (OOP)** to ensure modularity and scalability.
 
 ## 🏗️ Project Structure
-```shell
+```
 📂 PoliticalSurveyOOP/
 │── 📂 src/                # Source code directory
 │   │── 📄 Main.java           # Entry point for the program
