@@ -23,7 +23,7 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 ### Prerequisites
 - Install **Java JDK 19+** on your system.
 - Set up **Git** if you plan to clone the repository.
-- (Optional) Use **IntelliJ IDEA** or **Eclipse** for a better development experience.
+- (Optional) Use **IntelliJ IDEA** for a better development experience.
 
 ### Steps
 1. **Clone the repository**:
