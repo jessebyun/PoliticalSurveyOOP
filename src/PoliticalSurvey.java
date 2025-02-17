@@ -19,6 +19,7 @@ public class PoliticalSurvey {
     public void runSurvey() {
         Scanner scanner = new Scanner(System.in);
         int totalScore = 0; // Scores cumulative score of answers
+        int validResponses = 0; // Track valid answers
         boolean earlyGuessMade = false; // Tracks whether an early guess was made
 
         // Loop through each question and ask user for input
@@ -27,12 +28,30 @@ public class PoliticalSurvey {
             System.out.println("Your answer (A/B/C/D): ");
             String answer = scanner.nextLine().toUpperCase(); // Convert user input to uppercase
             int points = getScoreFromAnswer(answer); // Convert response to a score
+
+            if (points == 0) {
+                System.out.println("Invalid input, skipping this question." + "\n");
+                continue; // Skip scoring and early guess for this question
+            }
+
+            // Only count valid responses
             totalScore += points; // Add to the total score
+            validResponses++; // Increment valid response count
+
+            // Debugging Purposes
+//            System.out.println("DEBUG: Valid response count = " + validResponses); // Print valid response counter
+//            System.out.println("DEBUG: Score from current question = " + points); // Point from user answer
+//            System.out.println("DEBUG: Total score so far = " + totalScore); // Print running total for debugging
+//            System.out.println("DEBUG: Running average score so far = " + totalScore / validResponses + "\n");
 
             // Check for an early guess at predetermined question numbers
-            if (shouldMakeGuess(i + 1)) {
-                double averageScore = (double) totalScore / (i + 1); // Calculate average score
+            if (shouldMakeGuess(validResponses)) {
+                double averageScore = (double) totalScore / validResponses; // Calculate average score
                 String earlyGuess = getAffiliation(averageScore); // Get political affiliation based from average score
+
+                // Debugging: Show early guess calculation
+//                System.out.println("DEBUG: Early guess triggered. Average Score = " + averageScore);
+
                 if (!earlyGuess.equals("Undetermined")) {
                     System.out.println("Our early guess is that you are: " + earlyGuess);
                     earlyGuessMade = true;
@@ -42,11 +61,16 @@ public class PoliticalSurvey {
         }
 
         // If no early guess was made, calculate a final guess at the end
-        if (!earlyGuessMade) {
-            double finalAverage = (double) totalScore / questions.length;
+        if (!earlyGuessMade && validResponses > 0) { // Ensure at least one valid response
+            double finalAverage = (double) totalScore / validResponses;
             String finalGuess = getAffiliation(finalAverage);
+
+            // Debugging: Show final guess calculation
+//            System.out.println("DEBUG: Final calculation. Average score = " + finalAverage + "\n");
+
             System.out.println("Our final guess is that you are: " + finalGuess);
-        }
+        } else if (validResponses == 0)
+            System.out.println("No valid responses were given. Unable to determine political affiliation.");
 
         // Ask for the user's actual political affiliation
         System.out.println("Please enter your actual political affiliation for our survey: ");
@@ -64,19 +88,17 @@ public class PoliticalSurvey {
             case "C": return 3; // Moderate right
             case "D": return 4; // Most Conservative choice
             default:
-                System.out.println("Invalid input, moving to next question");
                 return 0; // If input is invalid, return 0 points
         }
     }
 
     // Checks whether the current question is a predetermined guess point
-    private boolean shouldMakeGuess(int questionNumber) {
+    private boolean shouldMakeGuess(int validResponses) {
         for (int point : guessPoints) {
-            if (questionNumber == point) {
-                return true;
-            }
+            if (validResponses == point)
+                return true; // Trigger an early guess if validResponses at guess point for total answered questions
         }
-        return false;
+        return false; // Otherwise, continue asking questions
     }
 
     // Determines political affiliation based on average score
