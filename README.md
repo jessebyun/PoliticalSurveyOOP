@@ -28,7 +28,7 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 ### Steps
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/PoliticalSurveyOOP.git
+   git clone https://github.com/jessebyun/PoliticalSurveyOOP.git
    
 2. **Navigate to the project directory**:
     ```sh
