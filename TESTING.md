@@ -52,7 +52,7 @@ To help with debugging, the program prints:
 
 ## **🔹 Before Fix: Incorrect Behavior**
 ### **Code Logic Before Fix (Pseudocode)**
-```plaintext
+```java
 initialize totalScore = 0
 initialize earlyGuessMade = false
 
@@ -93,7 +93,7 @@ if earlyGuessMade is false:
 - Only make a final classification if at least one valid response is given.
 
 ### Fixed Code Logic (Pseudocode)
-```plaintext
+```java
 initialize totalScore = 0
 initialize validResponses = 0 // Track only valid answerws
 initialize earlyGuessMade = false
