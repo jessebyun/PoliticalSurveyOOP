@@ -33,7 +33,7 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 ### 🛠️ How to Navigate the Code:
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/yourusername/PoliticalSurveyOOP.git
+   git clone https://github.com/jessebyun/PoliticalSurveyOOP.git
 
 
 
