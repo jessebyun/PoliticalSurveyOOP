@@ -41,8 +41,8 @@ public class PoliticalSurvey {
             // Debugging Purposes
 //            System.out.println("DEBUG: Valid response count = " + validResponses); // Print valid response counter
 //            System.out.println("DEBUG: Score from current question = " + points); // Point from user answer
-//            System.out.println("DEBUG: Total score so far = " + totalScore); // Print running total for debugging
-//            System.out.println("DEBUG: Running average score so far = " + totalScore / validResponses + "\n");
+//            System.out.println("DEBUG: Total score so far = " + totalScore); // Print running total
+//            System.out.println("DEBUG: Real-time average score = " + totalScore / validResponses + "\n"); // Monitor scoring logic dynamically
 
             // Check for an early guess at predetermined question numbers
             if (shouldMakeGuess(validResponses)) {

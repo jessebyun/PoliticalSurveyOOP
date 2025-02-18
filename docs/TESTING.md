@@ -8,41 +8,59 @@ The focus was on:
 - **Edge Cases:** Testing scenarios where inputs are extreme or unexpected.
 
 To help with debugging, the program prints:
-1. **Valid response counter**
-2. **Score from the user’s response**
-3. **Cumulative total** after each question
-4. **Running average score**
+- `"DEBUG: Valid response count = "` - Valid response counter
+- `"DEBUG: Score from current question = "` - Score from user's response
+- `"DEBUG: Total score so far = "` - Cumulative total after each question
+- `"DEBUG: Real-time average score = "` - Dynamic scoring logic
+- `"DEBUG: Final calculation. Average score = "` - End-of-survey score
 
 ---
 
 ## **Test Cases and Results**
 
-### ✅ **Valid Input Handling**
-| Test Case | Input | Expected Outcome | Actual Output | Pass/Fail |
-|-----------|--------|------------------|--------------|-----------|
+### ✔️ **Valid Input Handling**
+| Test Case | Input | Expected Outcome                   | Actual Output | Pass/Fail |
+|-----------|--------|------------------------------------|--------------|-----------|
 | Normal input | A, B, C, D in sequence | Correct scoring and classification | Score updated correctly | ✅ PASS |
-| All "A" answers | A for all questions | Liberal affiliation | Score updated correctly, triggered early guess | ✅ PASS |
-| All "D" answers | D for all questions | Conservative affiliation | Score updated correctly, triggered early guess | ✅ PASS |
-| Alternating answers | A, D, A, D... | Middle score (Moderate) | Score updated correctly, ran full survey with "Undetermined" classification | ✅ PASS |
+| All "A" answers | A for all questions | Liberal affiliation                | Score updated correctly, triggered early guess | ✅ PASS |
+| All "D" answers | D for all questions | Conservative affiliation           | Score updated correctly, triggered early guess | ✅ PASS |
+| Alternating answers | A, D, A, D... | Middle score (Undetermined)        | Score updated correctly, ran full survey with "Undetermined" classification | ✅ PASS |
 
 ### ❌ **Invalid Input Handling**
-| Test Case | Input | Expected Outcome | Actual Output | Pass/Fail |
-|-----------|--------|------------------|--------------|-----------|
-| Invalid inputs | "X", "5", "hello" | Skip question, not counted toward score | Skips question and score remains at 0 | ✅ PASS |
+| Test Case | Input | Expected Outcome | Actual Output                                                                                 | Pass/Fail |
+|-----------|--------|------------------|-----------------------------------------------------------------------------------------------|-----------|
+| Invalid inputs | "X", "5", "hello" | Skip question, not counted toward score | Skips question and total score remains same                                                   | ✅ PASS |
 | One valid response, rest invalid | "A", "X", "X", ... | No early guess should be made | Each invalid response skewed average toward 0, incorrectly triggered early guess as "Liberal" | ❌ FAIL |
-| Only invalid responses | "X" for all | No affiliation guessed | Incorrectly triggered an early guess as "Liberal" | ❌ FAIL |
+| Only invalid responses | "X" for all | No affiliation guessed | Incorrectly triggered an early guess as "Liberal"                                             | ❌ FAIL |
 
 ---
 
-## **Edge Case Analysis**
-1. **All “A” answers** → Expected outcome: **Liberal classification** → ✅ **PASS**
-2. **All “D” answers** → Expected outcome: **Conservative classification** → ✅ **PASS**
-3. **Alternating answers (A → B → C → D)** → Expected outcome: **Moderate/Undetermined classification** → ✅ **PASS**
+## ⚡ **Edge Case Analysis**
+
+### **1️⃣ Early Guess with Insufficient Valid Responses**
+🔻 *Problem:* If only 1 valid response is given before a guess point, an early guess is made based on a single answer, leading to inaccurate results.
+
+---
+
+### **2️⃣ Invalid Inputs Skewing Liberal Scores**
+🔻 *Problem:* Invalid answers were being counted as "0", artificially lowering the average score, making the program more likely to guess "Liberal."
+
+---
+
+### **3️⃣ All "A" or All "D" Answers (Extreme Cases)**
+🔹 *Test:* Entering all "A" or all "D" should result in extreme liberal or conservative outcomes.  
+🔹 *Validation:* Confirmed that **all "A" resulted in "Liberal"** and all "D" resulted in "Conservative" with no miscalculations.
+
+---
+
+### **4️⃣ Alternating Answers (A, D, A, D...)**
+🔹 *Test:* Alternating responses should average out to an "Undetermined" score.  
+🔹 *Validation:* Confirmed that **averages remained balanced** and resulted in "Undetermined."
 
 ---
 
 ## **Identified Issues and Fixes**
-### **Issue: Invalid Inputs Skewing Early Guess**
+### **🔴 Issue: Invalid Inputs Skewing Early Guess**
 - **Problem:**  
   If only **one** valid answer was provided while the rest were invalid, the **early guess was still triggered**.
     - The early guess system **checks after 50% of questions (10 questions)**.
@@ -79,7 +97,7 @@ if earlyGuessMade is false:
     
 ```
 
-## **🔴 Problem:**
+## **🔺 Problem:**
 
 - Invalid responses were not properly skipped, which made the average score lower.
 - An early guess was made even if most responses were invalid, leading to incorrect predictions.
@@ -144,7 +162,9 @@ else if validResponses == 0:
 ✅ Prevents misleading classifications when there are too few valid responses.  
 ✅ The final guess is only made if at least one valid answer is provided.
 
-For actual implementation, refer to [PoliticalSurvey.java](https://github.com/jessebyun/PoliticalSurveyOOP/blob/main/src/PoliticalSurvey.java). 🚀  
-For a full explanation of the pseudocode, refer to [`docs/pseudocode`](https://github.com/jessebyun/PoliticalSurveyOOP/tree/main/docs/pseudocode).  
+---
+## ** 🔗 References **
+📄 For actual implementation, refer to [`PoliticalSurvey.java`](https://github.com/jessebyun/PoliticalSurveyOOP/blob/main/src/PoliticalSurvey.java).  
+📃 To view pseudocode, refer to [`docs/pseudocode`](https://github.com/jessebyun/PoliticalSurveyOOP/tree/main/docs/pseudocode).
 
 [//]: # (Need to implement before and after pseudocode)
