@@ -57,7 +57,7 @@ initialize totalScore = 0
 initialize earlyGuessMade = false
 
 for each question in survey:
-    display question
+    display question with options
     get user input
 
     determine score from user input
@@ -99,18 +99,18 @@ initialize validResponses = 0 // Track only valid answerws
 initialize earlyGuessMade = false
 
 for each question in survey:
-    display question
+    display question with options
     get user input
     determmine score from user input
 
-    if input is invalid :
+    if input is invalid : // Now checks for valid input
         print "Invalid input, skipping question."
-        continue  // Skip processing for invalid input
+        continue  // Skip processing adding to totalScore and making early guess
 
     add score of userInput to totalScore
     increment validResponses counter
 
-    if validResponses matches an early guess checkpoint:
+    if validResponses matches an early guess checkpoint: // Checks # of validResponses rather # of questions encountered
         calculate averageScore = totalScore / validResponses // Now uses valid responses
         determine earlyGuess based on averageScore
         
@@ -119,7 +119,7 @@ for each question in survey:
             earlyGuessMade = true
             break  // Stop survey
 
-if earlyGuessMade is false and validResponses > 0:
+if earlyGuessMade is false and validResponses > 0: // Now requires least one valid response for determination at end
     calculate finalAverage = totalScore / validResponses // Uses only valid responses
     determine finalGuess based on finalAverage
     print "Our final guess is: " + finalGuess
@@ -145,6 +145,6 @@ else if validResponses == 0:
 ✅ The final guess is only made if at least one valid answer is provided.
 
 For actual implementation, refer to [PoliticalSurvey.java](https://github.com/jessebyun/PoliticalSurveyOOP/blob/main/src/PoliticalSurvey.java). 🚀  
-For a full explanation of the before/after pseudocode, refer to [`docs/pseudocode`](https://github.com/jessebyun/PoliticalSurveyOOP/tree/main/docs/pseudocode).  
+For a full explanation of the pseudocode, refer to [`docs/pseudocode`](https://github.com/jessebyun/PoliticalSurveyOOP/tree/main/docs/pseudocode).  
 
 [//]: # (Need to implement before and after pseudocode)
