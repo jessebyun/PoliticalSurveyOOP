@@ -13,19 +13,19 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 ## 🏗️ Project Structure
 ```
 📂 PoliticalSurveyOOP/
-│── 📂 src/                       # Source code directory
-│   │── 📄 Main.java              # Entry point for the program
-│   │── 📄 PoliticalSurvey.java   # Manages survey flow, scoring, and predictions
-│   │── 📄 QuestionBank.java      # Stores all survey questions
-│   │── 📄 Question.java          # Represents a single question with answer options
-│── 📂 docs/                      # Documentation directory
-│   │── 📂 pseudocode/                         # Directory for pseudocode breakdowns
+│── 📂 src/                               # Source code directory
+│   │── 📄 Main.java                           # Entry point for the program
+│   │── 📄 PoliticalSurvey.java                # Manages survey flow, scoring, and predictions
+│   │── 📄 QuestionBank.java                   # Stores all survey questions
+│   │── 📄 Question.java                       # Represents a single question with answer options
+│── 📂 docs/                              # Documentation directory
+│   │── 📂 pseudocode/                       # Directory for pseudocode breakdowns
 │   │   │── 📄 Main_pseudocode.md              # Pseudocode for the program entry point
 │   │   │── 📄 PoliticalSurvey_pseudocode.md   # Pseudocode for survey logic
 │   │   │── 📄 QuestionBank_pseudocode.md      # Pseudocode for question storage
 │   │   │── 📄 Question_pseudocode.md          # Pseudocode for individual questions
-│   │── 📄 TESTING.md             # Detailed test cases and debugging information
-│── 📄 README.md                  # Documentation for the project
+│   │── 📄 TESTING.md                        # Detailed test cases and debugging information
+│── 📄 README.md                          # Documentation for the project
 ```
 
 ---
