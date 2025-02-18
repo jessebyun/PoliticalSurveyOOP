@@ -105,12 +105,12 @@ for each question in survey:
 
     if input is invalid : // Now checks for valid input
         print "Invalid input, skipping question."
-        continue  // Skip processing adding to totalScore and making early guess
+        continue  // Skip processing current iteration- bypass adding to totalScore and making early guess
 
     add score of userInput to totalScore
-    increment validResponses counter
+    increment validResponses counter // Count valid response
 
-    if validResponses matches an early guess checkpoint: // Checks # of validResponses rather # of questions encountered
+    if validResponses matches an early guess checkpoint: // Matches checkpoint by # of validResponses rather # of questions encountered
         calculate averageScore = totalScore / validResponses // Now uses valid responses
         determine earlyGuess based on averageScore
         
