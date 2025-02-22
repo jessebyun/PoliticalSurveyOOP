@@ -54,11 +54,11 @@ This is a **Java-based Political Survey** program that predicts a user's politic
 2. **Navigate to the project directory**:
     ```sh
     cd PoliticalSurveyOOP
-    ```
+   ```
 3. **Compile the project**:
     ```sh
     javac *.java
-    ```
+   ```
 4. *Run the survey*:
     ```sh
    java Main
